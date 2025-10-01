@@ -1,0 +1,20 @@
+{
+    "ordenesPago": {
+        "nombre": "Ordenes pago",
+        "aplentId": "bcc94d05-976b-43fd-a0dd-db2fbee2f2c8",
+        "modeloAcademico": 2,
+        "modeloFinanciero": 2,
+        "usuarios": [
+            {
+                "usuario": "automatizacion@yopmail.com",
+                "contrasenia": "0000",
+                "rol": 0
+            },
+            {
+                "usuario": "estudiante_automatizacion",
+                "contrasenia": "estudiante_automatizacion",
+                "rol": 1
+            }
+        ]
+    }
+}
