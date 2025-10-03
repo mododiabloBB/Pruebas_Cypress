@@ -23,6 +23,7 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+/// <reference types="cypress" />
 
 Cypress.Commands.add('login', (institucionKey, tipoUsuario) => {
     cy.fixture('Login/instituciones').then((instituciones) => {
@@ -43,7 +44,6 @@ Cypress.Commands.add('login', (institucionKey, tipoUsuario) => {
                 cy.getCookie('.AspNet.ApplicationCookie').should('exist');
             }
         })
-        cy.visit(loginUrl);
     })
 })
 
@@ -65,5 +65,4 @@ Cypress.Commands.add('loginGlobalUser', (institucionKey, tipoUsuario) => {
             cy.getCookie('.AspNet.ApplicationCookie').should('exist');
         }
     })
-    cy.visit(loginUrl);
 })
