@@ -1,16 +1,19 @@
 export default class ProductosPage {
 
-    static inicio(){
-        cy.visit('/Productos')
+    static inicio() {
+        cy.visit('/Productos');
     }
 
-    static abrirModalCrearProducto () {
-        this.inicio()
-        cy.get('a[title="Crear productos"]').click()
-        return cy.get('#form0')
+    static abrirModalCrearProducto() {
+        cy.get('a[title="Crear productos"]').click();
+        return cy.get('#form0');
     }
 
-    static completarCampo (selector, texto) {
-        return cy.get(selector).type(texto)
+    static completarCampo(selector, texto) {
+        return cy.get(selector).clear().type(texto, {delay: 20});
+    }
+
+    static seleccionarOpcionSelect(dataIdSelect, opcion) {
+        return cy.get(`select#${dataIdSelect}`).select(opcion, { force: true });
     }
 }

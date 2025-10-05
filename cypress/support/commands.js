@@ -52,7 +52,7 @@ Cypress.Commands.add('loginGlobalUser', (institucionKey, tipoUsuario) => {
     const { aplentId, usuarios } = institucion;
     const { usuario, contrasenia } = usuarios.find(u => u.rol === tipoUsuario);
     const loginUrl = `login?ReturnUrl=%2F&aplentId=${aplentId}`;
-
+    
     cy.session(`sesion ${institucionKey} - usuario ${tipoUsuario}`, () => {
         cy.visit(loginUrl)
         cy.get('#NombreUsuario').clear().type(usuario);
@@ -65,4 +65,52 @@ Cypress.Commands.add('loginGlobalUser', (institucionKey, tipoUsuario) => {
             cy.getCookie('.AspNet.ApplicationCookie').should('exist');
         }
     })
+    Cypress.env('institucionSesion', institucionKey)
+})
+
+Cypress.Commands.add('enviarFormularioModal', () => {
+    cy.get('.modal-footer [type="submit"]').parents('form').then($form => {
+        const url = $form.attr('action');
+        const metodo = ($form.attr('method') || 'GET').toUpperCase();
+
+        if (url) {
+            cy.intercept(metodo, url).as('peticionInterceptada');
+        }
+
+        cy.get('.modal-footer [type="submit"]').click();
+
+        if (url) {
+            cy.wait('@peticionInterceptada');
+            cy.get('.alert-success').should('be.visible')
+        }
+
+        if (metodo == 'POST') {
+            // Esto con el fin de que en un futuro si se requiere obtener el consecutivo de algo creado se pueda hacer al momento de enviar el formulario : PENDIENTE VALIDAR
+        }
+    });
+})
+
+Cypress.Commands.add('buscarRegistroTabla', (texto) => {
+    cy.get('#texto').clear().type(texto, { delay: 20 });
+    cy.get("#filters_form input#texto")
+        .siblings("span", { log: false })
+        .get('button[type="submit"]', { log: false })
+        .click();
+
+    cy.get('#mainPanel > .form-loading > div').should('not.be.visible')
+
+    cy.get("table tbody tr").first().should('contain', texto);
+})
+
+Cypress.Commands.add('presionarAccionRegistroTabla', (registro, textoOpcion) => {
+    cy.get("table.table tbody tr").as('registros');
+    cy.get('@registros').should('contain', registro)
+
+    cy.get('@registros')
+        .contains(registro)
+        .closest("tr")
+        .find(`td.actions a[data-original-title="${textoOpcion}"]`)
+        .click({ force: true });
+
+    if (textoOpcion == 'Detalle') cy.get('#itemDetails').should('be.visible');
 })

@@ -1,0 +1,19 @@
+{
+    "producto": {
+        "base": {
+            "codigo": "001002003",
+            "nombre": "Hola que tal",
+            "impuesto": "IVA",
+            "valor": "100.000"
+        },
+        "editar": {
+            "nombre": "Soy el chico de las poesías",
+            "impuesto": "IMPUESTO CYPRESS",
+            "valor": "150.000"
+        },
+        "relaciones": {
+            "programa": "Sistemas",
+            "asignatura": "Programación"
+        }
+    }
+}

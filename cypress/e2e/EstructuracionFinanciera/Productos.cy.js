@@ -1,14 +1,21 @@
-import ProductosPage from '../../pages/EstructuracionFinanciera/ProductosPage.js'
+import ProductosFlows from '../../flows/EstructuracionFinanciera/ProductosFlows.js'
+import DatosProducto from '../../fixtures/EstructuracionFinanciera/Productos.json'
 
-describe('Gestión estructuración financiera', () =>{
+const { base, editar, relaciones } = DatosProducto.producto;
+
+describe('Gestión estructuración financiera', () => {
 
     beforeEach(() => cy.loginGlobalUser('ordenesPago', 0))
 
-    it ('Crear productos', () => {
-        ProductosPage.abrirModalCrearProducto().should('be.visible')
+    it('Crear producto', () => {
+        ProductosFlows.crearProducto(base.codigo, base.nombre, base.valor, base.impuesto);
+    })
 
-        ProductosPage.completarCampo('#Producto_prod_codigoP', 'COD1').should('have.value', 'COD1')
-        ProductosPage.completarCampo('#Producto_prod_nombre', 'nombre producto').should('have.value', 'nombre producto')
-        ProductosPage.completarCampo('#Producto_prod_valor_neto_currencytxt', '100.000').should('contain.value', '100.000')
+    it('Editar producto', () => {
+        ProductosFlows.editarProducto(base.codigo, editar.nombre, editar.valor, editar.impuesto);
+    })
+
+    it('Eliminar', () => {
+        ProductosFlows.eliminarProducto(editar.nombre);
     })
 })
