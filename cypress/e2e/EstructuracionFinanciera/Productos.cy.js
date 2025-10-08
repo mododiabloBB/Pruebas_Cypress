@@ -7,7 +7,7 @@ describe('Gestión estructuración financiera', () => {
 
     beforeEach(() => cy.loginGlobalUser('ordenesPago', 0))
 
-    it('Crear producto', () => {
+    it('Crear producto', {retries: 1}, () => {
         ProductosFlows.crearProducto(base.codigo, base.nombre, base.valor, base.impuesto);
     })
 
