@@ -1,4 +1,4 @@
-import ProductosPage from '../../pages/EstructuracionFinanciera/ProductosPage';
+import ProductosPage from '../../pageObject/Pages/EstructuracionFinanciera/ProductosPage.js';
 import ProductosApi from '../../api/EstructuracionFinanciera/ProductosApi.js';
 
 export default class ProductosFlows {

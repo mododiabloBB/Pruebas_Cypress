@@ -1,0 +1,13 @@
+{
+    "asignaturas": {
+        "base": {
+            "codigo": "ANG",
+            "nombre": "mi vida yooooo",
+            "abreviacion": "ANG"
+        },
+        "editar": {
+            "nombre": "trataré de olvidarte",
+            "abreviacion": "ANG :("
+        }
+    }
+}

@@ -44,6 +44,7 @@ Cypress.Commands.add('login', (institucionKey, tipoUsuario) => {
                 cy.getCookie('.AspNet.ApplicationCookie').should('exist');
             }
         })
+        Cypress.env('institucionSesion', institucionKey)
     })
 })
 
