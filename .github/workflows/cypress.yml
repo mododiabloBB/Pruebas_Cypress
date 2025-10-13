@@ -31,6 +31,9 @@ jobs:
         with:
           record: true
           parallel: true # habilita el paralelismo automático
+          group: 'E2E'
+          ci-build-id: ${{ github.run_id }}
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}s
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CYPRESS_BUILD_ID: ${{ github.run_id }}
