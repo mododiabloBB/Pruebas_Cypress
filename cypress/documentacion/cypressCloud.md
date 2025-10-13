@@ -66,4 +66,4 @@ debemos crear en nuestro proyecto cypress el archivo .yml que nos da el cloud.
 
 <img src="./img/yml.bmp" width="500"/>
 
-Luego de esto se debe realizar un "push" para que la accion guardada se ejecute de forma correcta.
+Luego de esto se debe realizar un "push" en nuestra rama, y para finalizar debemos ejecutar el comando "nopx cypress run" que nos muestra nuestro cloud.

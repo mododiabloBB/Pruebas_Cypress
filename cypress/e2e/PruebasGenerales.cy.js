@@ -1,4 +1,4 @@
-import Componestes from '../pages/Componentes/Navbar.js'
+import Componestes from '../pageObject/Componentes/Navbar.js'
 
 describe('Pruebas login', () =>{
 
