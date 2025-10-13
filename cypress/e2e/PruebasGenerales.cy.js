@@ -10,7 +10,7 @@ describe('Pruebas login', () =>{
     
 
     it('Pruebas general', () =>{
-        Componestes.irASubseccion('Institucional', 'Estructuración', 'Aulas')
+        Componestes.irASubseccion('Institucional', 'Estructuración', 'Aulas');
     })
 
 })
