@@ -31,8 +31,8 @@ jobs:
         with:
           record: true
           parallel: true # habilita el paralelismo automático
-          group: 'E2E-${{ matrix.containers }}'
-          ci-build-id: ${{ env.CYPRESS_BUILD_ID }}
+          group: 'E2E'
+          ci-build-id: ${{ github.run_id }}
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
