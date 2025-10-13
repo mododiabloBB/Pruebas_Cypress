@@ -7,7 +7,7 @@ describe('Gestión estructuración académica', () => {
 
     // Se elimina este login ya que desde el cloud presenta problemas con el .json por lo que se debe investigar el porque
     //beforeEach(() => cy.login('ordenesPago', 0))
-    beforeEach(() => cy.loginGlobalUser('ordenesPago', 0))
+    beforeEach(() => cy.loginGlobalUser('ordenesPago', 0));
 
     it('Crear asignatura', () => {
         AsignaturasFlows.crearAsignatura(base.codigo, base.nombre, base.abreviacion);

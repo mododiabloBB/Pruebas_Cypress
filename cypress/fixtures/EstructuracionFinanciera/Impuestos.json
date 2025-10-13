@@ -1,0 +1,13 @@
+{
+    "impuestos":{
+        "base":{
+            "nombre": "si me falta un",
+            "porcentaje": 19,
+            "tipo": "IVA"
+        },
+        "editar":{
+            "nombre": "pedazo de cielo",
+            "porcentaje": 25
+        }
+    }
+}

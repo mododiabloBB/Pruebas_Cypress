@@ -3,9 +3,9 @@ import DatosProducto from '../../fixtures/EstructuracionFinanciera/Productos.jso
 
 const { base, editar, relaciones } = DatosProducto.producto;
 
-describe('Gestión estructuración financiera', () => {
+describe('Gestión estructuración financiera - Productos', () => {
 
-    beforeEach(() => cy.loginGlobalUser('ordenesPago', 0))
+    beforeEach(() => cy.loginGlobalUser('ordenesPago', 0));
 
     it('Crear producto', {retries: 1}, () => {
         ProductosFlows.crearProducto(base.codigo, base.nombre, base.valor, base.impuesto);
