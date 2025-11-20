@@ -33,7 +33,7 @@ Cypress.Commands.add('login', (institucionKey, tipoUsuario) => {
         const loginUrl = `login?ReturnUrl=%2F&aplentId=${aplentId}`;
 
         cy.session(`sesion ${institucionKey} - usuario ${tipoUsuario}`, () => {
-            cy.visit(loginUrl)
+            cy.visit(loginUrl);
             cy.get('#NombreUsuario').clear().type(usuario);
             cy.get('#Contrasena').clear().type(contrasenia);
             cy.intercept('GET', 'https://site2.q10.com/').as('InicioSesion');
@@ -55,7 +55,7 @@ Cypress.Commands.add('loginGlobalUser', (institucionKey, tipoUsuario) => {
     const loginUrl = `login?ReturnUrl=%2F&aplentId=${aplentId}`;
     
     cy.session(`sesion ${institucionKey} - usuario ${tipoUsuario}`, () => {
-        cy.visit(loginUrl)
+        cy.visit(loginUrl);
         cy.get('#NombreUsuario').clear().type(usuario);
         cy.get('#Contrasena').clear().type(contrasenia);
         cy.intercept('GET', 'https://site2.q10.com/').as('InicioSesion');
